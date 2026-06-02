@@ -106,7 +106,7 @@ export default function BadgeCompare() {
               className="pointer-events-none absolute inset-x-4 top-0 h-px"
               style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent)' }}
             />
-            <RollingText color={'textColor' in v ? v.textColor : undefined} />
+            <RollingText color={'textColor' in v ? (v as { textColor: string }).textColor : undefined} />
           </div>
         </div>
       ))}

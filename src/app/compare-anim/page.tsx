@@ -40,7 +40,9 @@ const variants = [
   },
 ];
 
-function Variant({ v }: { label: string; titleInitial: object; titleAnimate: object; badgeInitial: object; badgeAnimate: object; }) {
+type VariantType = typeof variants[number];
+
+function Variant(v: VariantType) {
   const [key, setKey] = useState(0);
   return (
     <div className="relative flex flex-col items-center justify-center gap-4 h-64 border border-white/10 rounded-xl px-6 cursor-pointer" onClick={() => setKey(k => k + 1)}>
@@ -75,7 +77,7 @@ export default function CompareAnim() {
         <p className="text-xs tracking-[0.3em] uppercase text-white/30 mb-2">Anim foreshadow — cliquer pour rejouer</p>
         <div className="grid grid-cols-2 gap-4 w-full max-w-3xl">
           {variants.map((v) => (
-            <Variant key={v.label} v={v} {...v} />
+            <Variant key={v.label} {...v} />
           ))}
         </div>
       </div>
