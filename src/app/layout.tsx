@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -31,15 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        {children}
-        <Script
-          src="https://oracle.julienrion.com/tracker.js"
-          data-endpoint="https://oracle.julienrion.com/api/collect"
-          data-site="julienrion"
-          strategy="afterInteractive"
-        />
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
